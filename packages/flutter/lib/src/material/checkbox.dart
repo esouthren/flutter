@@ -305,7 +305,7 @@ class Checkbox extends StatefulWidget {
   ///
   /// If this property is null then [CheckboxThemeData.shape] of [ThemeData.checkboxTheme]
   /// is used. If that's null then the shape will be a [RoundedRectangleBorder]
-  /// with a circular corner radius of 1.0.
+  /// with a circular corner radius of 1.0 in Material 2, and 2.0 in Material 3.
   final OutlinedBorder? shape;
 
   /// {@template flutter.material.checkbox.side}
@@ -869,6 +869,11 @@ class _CheckboxDefaultsM3 extends CheckboxThemeData {
 
   @override
   VisualDensity get visualDensity => _theme.visualDensity;
+
+  @override
+  OutlinedBorder get shape => RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(2.0),
+  );
 }
 
 // END GENERATED TOKEN PROPERTIES - Checkbox
