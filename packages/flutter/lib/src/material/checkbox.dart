@@ -522,9 +522,7 @@ class _CheckboxState extends State<Checkbox> with TickerProviderStateMixin, Togg
           ..checkColor = effectiveCheckColor
           ..value = value
           ..previousValue = _previousValue
-          ..shape = widget.shape ?? checkboxTheme.shape ?? const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(1.0)),
-          )
+          ..shape = widget.shape ?? checkboxTheme.shape ?? defaults.shape!
           ..side = _resolveSide(widget.side) ?? _resolveSide(checkboxTheme.side),
       ),
     );
@@ -759,6 +757,11 @@ class _CheckboxDefaultsM2 extends CheckboxThemeData {
 
   @override
   VisualDensity get visualDensity => _theme.visualDensity;
+
+  @override
+  OutlinedBorder get shape => const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(1.0))
+  );
 }
 
 // BEGIN GENERATED TOKEN PROPERTIES - Checkbox
